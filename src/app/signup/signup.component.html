@@ -1,0 +1,87 @@
+<div class="conatiner">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Register!</mat-card-title>
+            <mat-card-subtitle>Start Looking for suitable candidate</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+
+
+            <form [formGroup]="userDetailsForm">
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Employee ID" formControlName="empid" required>
+                    <mat-error *ngFor="let validation of validation_messages.empid">
+                        <mat-error class="error-message" *ngIf="userDetailsForm.get('empid').hasError(validation.type) && (userDetailsForm.get('empid').dirty || userDetailsForm.get('empid').touched)">{{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+
+
+                <mat-form-field class="full-width">
+                    <input matInput type="email" placeholder="Email" formControlName="email" required>
+                    <mat-error *ngFor="let validation of account_validation_messages.email">
+                        <mat-error class="error-message" *ngIf="userDetailsForm.get('email').hasError(validation.type) && (userDetailsForm.get('email').dirty || userDetailsForm.get('email').touched)">{{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Full Name" formControlName="fullname" required>
+                    <mat-error *ngFor="let validation of validation_messages.fullname">
+                        <mat-error class="error-message" *ngIf="userDetailsForm.get('fullname').hasError(validation.type) && (userDetailsForm.get('fullname').dirty || userDetailsForm.get('fullname').touched)">{{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+                <mat-form-field class="full-width">
+                    <input matInput type="password" placeholder="Password" formControlName="password" required>
+                    <mat-error *ngFor="let validation of account_validation_messages.password">
+                        <mat-error class="error-message" *ngIf="userDetailsForm.get('password').hasError(validation.type) && (userDetailsForm.get('password').dirty || userDetailsForm.get('password').touched)">{{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput type="password" placeholder="Confirm Password" formControlName="confirm_password"
+                        required>
+                    <mat-error *ngFor="let validation of account_validation_messages.confirm_password">
+                        <mat-error class="error-message" *ngIf="(userDetailsForm.get('confirm_password').invalid|| userDetailsForm.get('confirm_password').hasError(validation.type)) && (userDetailsForm.get('confirm_password').dirty || userDetailsForm.get('confirm_password').touched)">{{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+                <mat-checkbox formControlName="terms">
+                    I accept terms and conditions
+                </mat-checkbox>
+                <mat-error *ngFor="let validation of account_validation_messages.terms">
+                    <mat-error class="error-message" *ngIf="userDetailsForm.get('terms').hasError(validation.type) && (userDetailsForm.get('terms').dirty || userDetailsForm.get('terms').touched)">{{validation.message}}</mat-error>
+                </mat-error>
+            </form>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!userDetailsForm.valid"
+                align="end">
+                Register
+            </button>
+
+            <button mat-icon-button color="primary" align="End" routerLink="/login">
+                <mat-icon aria-label="">arrow_left_alt</mat-icon>
+            </button>
+        </mat-card-actions>
+
+
+    </mat-card>
+
+
+
+</div>
