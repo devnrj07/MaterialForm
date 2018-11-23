@@ -1,7 +1,7 @@
-.body{
+.conatiner{
     content: '';
     display: inline;
-    margin: 0;
+   
     padding: 0;
     background: grey;
 }
@@ -13,8 +13,9 @@
 
 .mat-card{
     width: 20em;
-    margin: auto 20em;
-    background: whitesmoke;
+    margin: 30em 20em;
+    background:rgb(116, 111, 111);
+    
 }
 form {
     display: flex;
